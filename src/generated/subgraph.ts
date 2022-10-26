@@ -66,7 +66,7 @@ export interface Pair {
   readonly burns?: Maybe<readonly Burn[]>
   readonly createdAtBlockNumber: Scalars['BigInt']
   readonly createdAtTimestamp: Scalars['BigInt']
-  readonly factory: SoulSwapFactory
+  readonly factory: Factory
   readonly id: Scalars['ID']
   readonly liquidityPositions?: Maybe<readonly LiquidityPosition[]>
   readonly mints?: Maybe<readonly Mint[]>
@@ -157,10 +157,10 @@ export interface Query {
   readonly tokens: readonly Token[]
   readonly transaction?: Maybe<Transaction>
   readonly transactions: readonly Transaction[]
-  readonly soulswapDayData?: Maybe<SoulSwapDayData>
-  readonly soulswapDayDatas: readonly SoulSwapDayData[]
-  readonly soulswapFactories: readonly SoulSwapFactory[]
-  readonly soulswapFactory?: Maybe<SoulSwapFactory>
+  readonly dayData?: Maybe<DayData>
+  readonly dayDatas: readonly DayData[]
+  readonly factories: readonly Factory[]
+  readonly factory?: Maybe<Factory>
   readonly user?: Maybe<User>
   readonly users: readonly User[]
 }
@@ -305,30 +305,30 @@ export interface QueryTransactionsArgs {
   where?: Maybe<TransactionFilter>
 }
 
-export interface QuerySoulSwapDayDataArgs {
+export interface QueryDayDataArgs {
   block?: Maybe<BlockHeight>
   id: Scalars['ID']
 }
 
-export interface QuerySoulSwapDayDatasArgs {
+export interface QueryDayDatasArgs {
   block?: Maybe<BlockHeight>
   first?: Maybe<Scalars['Int']>
-  orderBy?: Maybe<SoulSwapDayDataOrderBy>
+  orderBy?: Maybe<DayDataOrderBy>
   orderDirection?: Maybe<OrderDirection>
   skip?: Maybe<Scalars['Int']>
-  where?: Maybe<SoulSwapDayDataFilter>
+  where?: Maybe<DayDataFilter>
 }
 
-export interface QuerySoulSwapFactoriesArgs {
+export interface QueryFactoriesArgs {
   block?: Maybe<BlockHeight>
   first?: Maybe<Scalars['Int']>
-  orderBy?: Maybe<SoulSwapFactoryOrderBy>
+  orderBy?: Maybe<FactoryOrderBy>
   orderDirection?: Maybe<OrderDirection>
   skip?: Maybe<Scalars['Int']>
-  where?: Maybe<SoulSwapFactoryFilter>
+  where?: Maybe<FactoryFilter>
 }
 
-export interface QuerySoulSwapFactoryArgs {
+export interface QueryFactoryArgs {
   block?: Maybe<BlockHeight>
   id: Scalars['ID']
 }
@@ -369,10 +369,10 @@ export interface Subscription {
   readonly tokens: readonly Token[]
   readonly transaction?: Maybe<Transaction>
   readonly transactions: readonly Transaction[]
-  readonly soulswapDayData?: Maybe<SoulSwapDayData>
-  readonly soulswapDayDatas: readonly SoulSwapDayData[]
-  readonly soulswapFactories: readonly SoulSwapFactory[]
-  readonly soulswapFactory?: Maybe<SoulSwapFactory>
+  readonly dayData?: Maybe<DayData>
+  readonly dayDatas: readonly DayData[]
+  readonly factories: readonly Factory[]
+  readonly factory?: Maybe<Factory>
   readonly user?: Maybe<User>
   readonly users: readonly User[]
 }
@@ -517,30 +517,30 @@ export interface SubscriptionTransactionsArgs {
   where?: Maybe<TransactionFilter>
 }
 
-export interface SubscriptionSoulSwapDayDataArgs {
+export interface SubscriptionDayDataArgs {
   block?: Maybe<BlockHeight>
   id: Scalars['ID']
 }
 
-export interface SubscriptionSoulSwapDayDatasArgs {
+export interface SubscriptionDayDatasArgs {
   block?: Maybe<BlockHeight>
   first?: Maybe<Scalars['Int']>
-  orderBy?: Maybe<SoulSwapDayDataOrderBy>
+  orderBy?: Maybe<DayDataOrderBy>
   orderDirection?: Maybe<OrderDirection>
   skip?: Maybe<Scalars['Int']>
-  where?: Maybe<SoulSwapDayDataFilter>
+  where?: Maybe<DayDataFilter>
 }
 
-export interface SubscriptionSoulSwapFactoriesArgs {
+export interface SubscriptionFactoriesArgs {
   block?: Maybe<BlockHeight>
   first?: Maybe<Scalars['Int']>
-  orderBy?: Maybe<SoulSwapFactoryOrderBy>
+  orderBy?: Maybe<FactoryOrderBy>
   orderDirection?: Maybe<OrderDirection>
   skip?: Maybe<Scalars['Int']>
-  where?: Maybe<SoulSwapFactoryFilter>
+  where?: Maybe<FactoryFilter>
 }
 
-export interface SubscriptionSoulSwapFactoryArgs {
+export interface SubscriptionFactoryArgs {
   block?: Maybe<BlockHeight>
   id: Scalars['ID']
 }
@@ -665,8 +665,8 @@ export interface TransactionSwapsArgs {
   where?: Maybe<SwapFilter>
 }
 
-export interface SoulSwapDayData {
-  readonly __typename?: 'SoulSwapDayData'
+export interface DayData {
+  readonly __typename?: 'DayData'
   readonly dailyVolumeAVAX: Scalars['BigDecimal']
   readonly dailyVolumeUSD: Scalars['BigDecimal']
   readonly date: Scalars['Int']
@@ -680,7 +680,7 @@ export interface SoulSwapDayData {
   readonly txCount: Scalars['BigInt']
 }
 
-export interface SoulSwapDayDataMostLiquidTokensArgs {
+export interface DayDataMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>
   orderBy?: Maybe<TokenDayDataOrderBy>
   orderDirection?: Maybe<OrderDirection>
@@ -688,8 +688,8 @@ export interface SoulSwapDayDataMostLiquidTokensArgs {
   where?: Maybe<TokenDayDataFilter>
 }
 
-export interface SoulSwapFactory {
-  readonly __typename?: 'SoulSwapFactory'
+export interface Factory {
+  readonly __typename?: 'Factory'
   readonly id: Scalars['ID']
   readonly mostLiquidTokens: readonly TokenDayData[]
   readonly pairCount: Scalars['Int']
@@ -701,7 +701,7 @@ export interface SoulSwapFactory {
   readonly txCount: Scalars['BigInt']
 }
 
-export interface SoulSwapFactoryMostLiquidTokensArgs {
+export interface FactoryMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>
   orderBy?: Maybe<TokenDayDataOrderBy>
   orderDirection?: Maybe<OrderDirection>
@@ -709,7 +709,7 @@ export interface SoulSwapFactoryMostLiquidTokensArgs {
   where?: Maybe<TokenDayDataFilter>
 }
 
-export interface SoulSwapFactoryPairsArgs {
+export interface FactoryPairsArgs {
   first?: Maybe<Scalars['Int']>
   orderBy?: Maybe<PairOrderBy>
   orderDirection?: Maybe<OrderDirection>
@@ -875,7 +875,7 @@ export enum TransactionOrderBy {
   Timestamp = 'timestamp'
 }
 
-export enum SoulSwapDayDataOrderBy {
+export enum DayDataOrderBy {
   DailyVolumeAvax = 'dailyVolumeAVAX',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
@@ -889,7 +889,7 @@ export enum SoulSwapDayDataOrderBy {
   TxCount = 'txCount'
 }
 
-export enum SoulSwapFactoryOrderBy {
+export enum FactoryOrderBy {
   Id = 'id',
   MostLiquidTokens = 'mostLiquidTokens',
   PairCount = 'pairCount',
@@ -1779,7 +1779,7 @@ export interface TransactionFilter {
   readonly timestamp_not_in?: Maybe<readonly Scalars['BigInt'][]>
 }
 
-export interface SoulSwapDayDataFilter {
+export interface DayDataFilter {
   readonly dailyVolumeAVAX?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeAVAX_gt?: Maybe<Scalars['BigDecimal']>
   readonly dailyVolumeAVAX_gte?: Maybe<Scalars['BigDecimal']>
@@ -1866,7 +1866,7 @@ export interface SoulSwapDayDataFilter {
   readonly txCount_not_in?: Maybe<readonly Scalars['BigInt'][]>
 }
 
-export interface SoulSwapFactoryFilter {
+export interface FactoryFilter {
   readonly id?: Maybe<Scalars['ID']>
   readonly id_gt?: Maybe<Scalars['ID']>
   readonly id_gte?: Maybe<Scalars['ID']>
@@ -2009,8 +2009,8 @@ export type TotalLiquidityQueryVariables = Exact<{
 }>
 
 export type TotalLiquidityQuery = { readonly __typename?: 'Query' } & {
-  readonly soulswapFactories: readonly ({ readonly __typename?: 'SoulSwapFactory' } & Pick<
-    SoulSwapFactory,
+  readonly factories: readonly ({ readonly __typename?: 'Factory' } & Pick<
+    Factory,
     'totalLiquidityUSD'
   >)[]
 }

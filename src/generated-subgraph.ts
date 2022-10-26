@@ -1026,10 +1026,10 @@ export interface Query {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly soulswapDayData?: Maybe<BscswapDayData>;
-  readonly soulswapDayDatas: ReadonlyArray<BscswapDayData>;
-  readonly soulswapFactories: ReadonlyArray<BscswapFactory>;
-  readonly soulswapFactory?: Maybe<BscswapFactory>;
+  readonly dayData?: Maybe<BscswapDayData>;
+  readonly dayDatas: ReadonlyArray<BscswapDayData>;
+  readonly factories: ReadonlyArray<BscswapFactory>;
+  readonly factory?: Maybe<BscswapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -1195,13 +1195,13 @@ export interface QueryTransactionsArgs {
 }
 
 
-export interface QuerySoulswapDayDataArgs {
+export interface QueryDayDataArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
 
 
-export interface QuerySoulswapDayDatasArgs {
+export interface QueryDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<BscswapDayData_OrderBy>;
@@ -1211,7 +1211,7 @@ export interface QuerySoulswapDayDatasArgs {
 }
 
 
-export interface QuerySoulswapFactoriesArgs {
+export interface QueryFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<BscswapFactory_OrderBy>;
@@ -1221,7 +1221,7 @@ export interface QuerySoulswapFactoriesArgs {
 }
 
 
-export interface QuerySoulswapFactoryArgs {
+export interface QueryFactoryArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
@@ -1264,10 +1264,10 @@ export interface Subscription {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly soulswapDayData?: Maybe<BscswapDayData>;
-  readonly soulswapDayDatas: ReadonlyArray<BscswapDayData>;
-  readonly soulswapFactories: ReadonlyArray<BscswapFactory>;
-  readonly soulswapFactory?: Maybe<BscswapFactory>;
+  readonly dayData?: Maybe<BscswapDayData>;
+  readonly dayDatas: ReadonlyArray<BscswapDayData>;
+  readonly factories: ReadonlyArray<BscswapFactory>;
+  readonly factory?: Maybe<BscswapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -1433,13 +1433,13 @@ export interface SubscriptionTransactionsArgs {
 }
 
 
-export interface SubscriptionSoulswapDayDataArgs {
+export interface SubscriptionDayDataArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
 
 
-export interface SubscriptionSoulswapDayDatasArgs {
+export interface SubscriptionDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<BscswapDayData_OrderBy>;
@@ -1449,7 +1449,7 @@ export interface SubscriptionSoulswapDayDatasArgs {
 }
 
 
-export interface SubscriptionSoulswapFactoriesArgs {
+export interface SubscriptionFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<BscswapFactory_OrderBy>;
@@ -1459,7 +1459,7 @@ export interface SubscriptionSoulswapFactoriesArgs {
 }
 
 
-export interface SubscriptionSoulswapFactoryArgs {
+export interface SubscriptionFactoryArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
@@ -2101,7 +2101,7 @@ export type TotalLiquidityQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TotalLiquidityQuery = (
   { readonly __typename?: 'Query' }
-  & { readonly soulswapFactories: ReadonlyArray<(
+  & { readonly factories: ReadonlyArray<(
     { readonly __typename?: 'BscswapFactory' }
     & Pick<BscswapFactory, 'totalLiquidityUSD'>
   )> }
