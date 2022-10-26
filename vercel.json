@@ -1,6 +1,6 @@
 {
     "name": "soulswap-avaxapi",
-    "version": 1,
+    "version": 2,
     "alias": "avaxapi.soulswap.finance",
     "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
     "routes": [
