@@ -11,7 +11,7 @@ const node_fetch_1 = __importDefault(require("node-fetch"));
 exports.client = new apollo_client_1.ApolloClient({
     link: new apollo_link_http_1.HttpLink({
         fetch: node_fetch_1.default,
-        uri: "https://api.thegraph.com/subgraphs/name/soulswapfinance/fantom-soulswap",
+        uri: "https://api.thegraph.com/subgraphs/name/soulswapfinance/avalanche-exchange",
     }),
     cache: new apollo_cache_inmemory_1.InMemoryCache(),
 });

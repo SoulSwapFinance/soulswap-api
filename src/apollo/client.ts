@@ -10,7 +10,7 @@ export const client = new ApolloClient({
     // uri: "https://api.thegraph.com/subgraphs/name/soulswapfinance/fantom-soulswap",
     // uri: 'https://api.thegraph.com/subgraphs/name/soulswapfinance/soulswap-exchange'
     // uri: 'https://api.thegraph.com/subgraphs/name/soulswapfinance/soulswap-exchange-avalanche'
-    uri: 'https://api.thegraph.com/subgraphs/name/soulswapfinance/exchange-avalanche'
+    uri: 'https://api.thegraph.com/subgraphs/name/soulswapfinance/avalanche-exchange'
   }),
   cache: new InMemoryCache()
 })
