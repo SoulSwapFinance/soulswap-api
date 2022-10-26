@@ -1,7 +1,7 @@
 {
-    "name": "soulswap-ftmapi",
-    "version": 1,
-    "alias": "ftmapi.soulswap.finance",
+    "name": "soulswap-avaxapi",
+    "version": 2,
+    "alias": "avaxapi.soulswap.finance",
     "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
     "routes": [
       { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
@@ -22,7 +22,7 @@
         "dest": "/src/trades.ts?pair=$pair",
         "methods": ["GET"]
       },
-      {"src": "/.*", "dest": "/src/404.ts"}
+      {"src": "/*", "dest": "/src/api.ts"}
     ]
   }
   

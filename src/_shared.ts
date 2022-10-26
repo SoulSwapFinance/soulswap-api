@@ -29,7 +29,7 @@ export function get24HoursAgo(): number {
 
 const TOP_PAIR_LIMIT = 1000
 export type Pair = TopPairsQuery['pairs'][number]
-export type SoulSwapFactory = TotalLiquidityQuery['soulswapFactories'][number]
+export type SoulSwapFactory = TotalLiquidityQuery['factories'][number]
 
 export interface MappedDetailedPair extends Pair {
   price?: string
@@ -222,7 +222,7 @@ export async function getSwaps(tokenA: string, tokenB: string): Promise<SwapMapp
 
 export async function getTotalLiquidity(): Promise<[number]> {
     let {data : {
-      soulswapFactories : [{totalLiquidityUSD: result}]
+      factories : [{totalLiquidityUSD: result}]
     }} = await client.query({
       query: TOTAL_LIQUIDITY
     })

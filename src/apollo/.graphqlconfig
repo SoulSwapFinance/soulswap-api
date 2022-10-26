@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "SoulSwapFinance": {
-        "url": "https://api.thegraph.com/subgraphs/name/soulswapfinance/soulswap-exchange",
+        "url": "https://api.thegraph.com/subgraphs/name/soulswapfinance/avalanche-exchange",
         "headers": {
           "user-agent": "JS GraphQL"
         },

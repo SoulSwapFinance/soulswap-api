@@ -1,10 +1,10 @@
 {
-  "name": "FTM Blocks",
+  "name": "AVAX Blocks",
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
       "BSC Blocks": {
-        "url": "https://api.thegraph.com/subgraphs/name/matthewlilley/fantom-blocks",
+        "url": "https://api.thegraph.com/subgraphs/name/matthewlilley/avalanche-blocks",
         "headers": {
           "user-agent": "JS GraphQL"
         },

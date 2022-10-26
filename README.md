@@ -8,12 +8,12 @@ The API is designed around the CoinMarketCap API
 
 # SoulSwap Endpoints
 
-All SoulSwap pairs consist of two different tokens. FTM is not a native currency in SoulSwap, and is represented
-only by WFTM in the pairs.
+All SoulSwap pairs consist of two different tokens. AVAX is not a native currency in SoulSwap, and is represented
+only by WAVAX in the pairs.
 
 The canonical WAVAX address used by the SoulSwap interface is ``.
 
-## [`/summary`](https://ftmapi.SoulSwap.finance/summary)
+## [`/summary`](https://avaxapi.SoulSwap.finance/summary)
 
 Returns data for the top ~1000 SoulSwap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
@@ -36,7 +36,7 @@ Results are edge cached for 15 minutes.
 }
 ```
 
-## [`/totalliquidity`](https://ftmapi.SoulSwap.finance/totalliquidity)
+## [`/totalliquidity`](https://avaxapi.SoulSwap.finance/totalliquidity)
 
 Returns the total liquidity in USD value on SoulSwap.
 Results are edge cached for 24 hours.
@@ -55,7 +55,7 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/assets`](https://ftmapi.SoulSwap.finance/assets)
+## [`/assets`](https://avaxapi.SoulSwap.finance/assets)
 
 Returns the tokens in the top ~1000 pairs on SoulSwap, sorted by reserves.
 Results are edge cached for 24 hours.
@@ -80,7 +80,7 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/tickers`](https://ftmapi.SoulSwap.finance/tickers)
+## [`/tickers`](https://avaxapi.SoulSwap.finance/tickers)
 
 Returns data for the top ~1000 SoulSwap pairs, sorted by reserves.
 Results are edge cached for 1 minute.
@@ -93,7 +93,7 @@ Results are edge cached for 1 minute.
 
 ```json5
 {
-  "0x..._0x...": {                    // the asset ids of FTM and BEP20 tokens, joined by an underscore
+  "0x..._0x...": {                    // the asset ids of AVAX and BEP20 tokens, joined by an underscore
     "base_name": "...",             // token0 name
     "base_symbol": "...",           // token0 symbol
     "base_id": "0x...",             // token0 address
